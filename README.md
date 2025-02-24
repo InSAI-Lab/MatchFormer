@@ -19,13 +19,13 @@ More detailed can be found in our [arxiv](https://arxiv.org/pdf/2203.09645.pdf) 
 
 ### Installation
 
- The requirements are listed in the `requirement.txt` file. To create your own environment, an example is:
+ The requirements are listed in the `requirements.txt` file. To create your own environment, an example is:
 
 ```bash
 conda create -n matchformer python=3.7
 conda activate matchformer
 cd /path/to/matchformer
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 ### Datasets
