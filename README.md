@@ -62,9 +62,21 @@ data
 
 The evaluation configurations can be adjusted at `/config/defaultmf.py`
 
-The weights can be downloaded in [Google Drive](https://drive.google.com/drive/folders/1JSnoQMfr32eoIXwJ1gpwUaPKv4kjdqJ7?usp=sharing).
+Pretrained model weights are hosted on Hugging Face at [InSAI-Lab/MatchFormer](https://huggingface.co/InSAI-Lab/MatchFormer). You can download them directly:
 
-Put the weight at `model/weights`.
+| Model | Setting | Size | Hugging Face Download |
+| :--- | :--- | :---: | :--- |
+| `indoor-large-SEA.ckpt` | Indoor (Large SEA) | 89.5 MB | [Download](https://huggingface.co/InSAI-Lab/MatchFormer/resolve/main/indoor-large-SEA.ckpt) |
+| `indoor-lite-LA.ckpt` | Indoor (Lite LA) | 77.4 MB | [Download](https://huggingface.co/InSAI-Lab/MatchFormer/resolve/main/indoor-lite-LA.ckpt) |
+| `outdoor-large-LA.ckpt` | Outdoor (Large LA) | 77.4 MB | [Download](https://huggingface.co/InSAI-Lab/MatchFormer/resolve/main/outdoor-large-LA.ckpt) |
+| `outdoor-lite-SEA.ckpt` | Outdoor (Lite SEA) | 103.5 MB | [Download](https://huggingface.co/InSAI-Lab/MatchFormer/resolve/main/outdoor-lite-SEA.ckpt) |
+
+Or download all weights via Hugging Face Hub CLI:
+```bash
+hf download InSAI-Lab/MatchFormer --local-dir model/weights
+```
+
+Put the weights at `model/weights`.
 
 #### Indoor:
 
@@ -111,7 +123,7 @@ MATCHFORMER.RESOLUTION = (8,4)
 MATCHFORMER.COARSE.D_MODEL = 192
 MATCHFORMER.COARSE.D_FFN = 192
 
-python test.py /config/data/megadepth_test_1500.py --ckpt_path /model/weights/indoor-large-SEA.ckpt --gpus=1 --accelerator="ddp"
+python test.py /config/data/megadepth_test_1500.py --ckpt_path /model/weights/outdoor-lite-SEA.ckpt --gpus=1 --accelerator="ddp"
 ```
 
 ### Training
